@@ -1,0 +1,71 @@
+body {
+	overflow-x: hidden;
+}
+input {
+	width: 30px;
+}
+text {
+	font-size: 12px;
+}
+.tree-text {
+	font: 8px sans-serif;
+}
+.chart-box {
+	width: 575px;
+	height: 357px;
+}
+.chart {
+	clear: both;
+	margin-top: 5px;
+}
+.tool .input-group-addon {
+	padding: 0px;
+}
+.tool .input-xs {
+	height: 22px;
+	width: 50px !important;
+}
+.tool .select-xs {
+	height: 23px;
+	padding:0px;
+	width: 80px !important;
+	font-size:10px;
+}
+.row {
+	padding-top: 2px;
+}
+.circle {
+	stroke: #000;
+	stroke-width: 1px;
+	fill: #fa6900;
+	fill-opacity: 1;
+}
+.range {
+	stroke: #000;
+	stroke-width: 0px;
+	fill: #ccc;
+	fill-opacity: 0.2;
+}
+.line {
+	stroke: #ccc;
+	stroke-width: 2px;
+}
+.cluster {
+	stroke: #000;
+	stroke-width: 1px;
+	fill: #fff;
+	fill-opacity: 0.2;
+}
+.node {
+	fill: steelblue;
+	stroke: #ccc;
+	stroke-width: 1px;
+}
+.link {
+	fill: none;
+	stroke: #ccc;
+	stroke-width: 2px;
+}
+.predict {
+	opacity: 0.2;
+}

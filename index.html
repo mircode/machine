@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>机器学习</title>
+		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="https://cdn.bootcss.com/d3/4.12.2/d3.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<br>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div id="knn" class="chart-box">
+						<div class="tool">
+							<div class="form-inline pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							  	<div class="input-group">
+							      <div class="input-group-addon">K值</div>
+							      <input type="text" class="form-control input-xs" id="knum" placeholder="3">
+							    </div>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="kmeans" class="chart-box">
+						<div class="tool">
+							<div class="form-inline pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							  	<div class="input-group">
+							      <div class="input-group-addon">K值</div>
+							      <input type="text" class="form-control input-xs" id="knum" placeholder="3">
+							    </div>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="pca" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="linear" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="dbscan" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="logistic" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="svm" class="chart-box">
+						<div class="tool">
+							<div class="form-inline pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							  	<select class="form-control select-xs" id="knum">
+									<option>anova</option>
+									<option selected>linear</option>
+									<option>cauchy</option>
+									<option>rational</option>
+									<option>gaussian</option>
+									<option>laplacian</option>
+									<option>histogram</option>
+									<option>exponential</option>
+									<option>multiquadratic</option>
+								</select>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="bayes" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div id="decision" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3" id="decision-tree">
+						<div id="tree" class="chart"></div>
+				</div>
+				<div class="col-sm-3">
+					<div id="hierarchical" class="chart-box">
+						<div class="tool">
+							<div class="pull-left">
+								<button class="btn btn-xs" id="start">数据</button>
+								<button class="btn btn-xs" id="predt">预测</button>
+								<button class="btn btn-xs" id="clean">重置</button>
+							</div>
+						</div>
+						<div id="chart" class="chart"></div>
+					</div>
+				</div>
+				<div class="col-sm-3" id="hierarchical-tree">
+						<div id="tree" class="chart"></div>
+				</div>
+			</div>
+		</div>
+		
+			
+		<!--依赖-->
+		<script src="lib/ml.js"></script>
+		<script src="lib/math.js"></script>
+		<script src="lib/matrix.js"></script>
+		<script src="lib/decision-tree.js"></script>
+		<script src="lib/simple-statistics.js"></script>
+		
+		<!--图表-->
+		<script src="js/chart.js"></script>
+		
+		<!--算法-->
+		<script src="js/kmeans.js"></script>
+		<script src="js/knn.js"></script>
+		<script src="js/pca.js"></script>
+		<script src="js/linear.js"></script>
+		<script src="js/dbscan.js"></script>
+		<script src="js/logistic.js"></script>
+		<script src="js/svm.js"></script>
+		<script src="js/bayes.js"></script>
+		<script src="js/decision.js"></script>
+		<script src="js/hierarchical.js"></script>
+		
+		<script>
+			$(function(){
+				var title='K最近邻';
+				var context='#knn';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						chart.on('mousemove',function(point,dataset){
+							// 从dataset中找出距离point最近的k个点
+							var res=KNN.knn(point,dataset,$('#knum',context).val()||3);
+							// 投票选出所属归类
+							var label=KNN.vote(res);
+							return {dataset:res,label:label};
+						});
+					}
+				});
+			});
+			
+			$(function(){
+				var title='KMeans';
+				var context='#kmeans';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						// 初始化k个中心点
+						var points=KMEANS.init($('#knum',context).val()||3,100,100);
+						var centers=chart.circle(points,7);
+						var it=0;
+						var old=null;
+						while(true||it>10){
+							// 根据centers标记图中的点
+					    	KMEANS.label(chart.data,centers);
+					    	chart.fill(chart.data);
+					    	
+					    	// 重新计算中心点centers
+					    	KMEANS.update(chart.data,centers);
+					    	chart.move(centers);
+					    	
+					    	// 检测是否收敛
+					    	if(KMEANS.check(old,centers)){
+					      		break;	
+					      	}
+					    	old=$.extend({},centers,true);
+					    	it++;
+					    }
+					}
+				});
+			});
+			
+			$(function(){
+				var title='PCA主成分析';
+				var context='#pca';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						// 绘线
+						var line=PCA.line(chart.data);
+						chart.line(line);
+						// 垂线
+						var lines=PCA.project(chart.data,line);
+						chart.lines(lines,'red');
+					}
+				});
+			});
+			
+			$(function(){
+				var title='Linear线性回归';
+				var context='#linear';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						// 绘线
+						var line=LINEAR.line(chart.data);
+						chart.line(line);
+						// 垂线
+						var lines=LINEAR.project(chart.data,line);
+						chart.lines(lines,'red');
+					}
+				});
+			});
+			
+			$(function(){
+				var title='DBSCAN';
+				var context='#dbscan';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						var delay=0;
+						DBSCAN.dbscan(chart.data,function(point){
+							chart.fill(point,function(){
+								delay+=1000;
+								return delay;
+							});
+						});
+					}
+				});
+			});
+			
+			$(function(){
+				var title='Logistic逻辑回归';
+				var context='#logistic';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						var line=LOGISTIC.logistic(chart.data);
+						chart.line(line);
+					}
+				});
+			});
+			
+			$(function(){
+				var title='SVM';
+				var context='#svm';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						var kernel=$('#knum',context).val();
+						var model=SVM.svm(chart.data,kernel,100,100);
+						kernel=='linear' && chart.line(model);
+						chart.area(function(point){
+							return SVM.model.predict([point.x,point.y]);
+						});
+					}
+				});
+			});
+			
+			$(function(){
+				var title='贝叶斯';
+				var context='#bayes';
+				var chart=$('#chart',context).chart(title);
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+					}else if(type=='predt'){
+						BAYES.bayes(chart.data);
+						chart.areabatch(function(set){
+							return BAYES.model.predict(set);
+						});
+					}
+				});
+			});
+			
+			$(function(){
+				var title='决策树';
+				var context='#decision';
+				var chart=$('#chart',context).chart(title);
+				var tree=null;
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+						tree.clean();
+					}else if(type=='predt'){
+						var data=DECISION.decision(chart.data);
+						tree=$('#tree',context+'-tree').tree('决策树');
+						tree.tree(data);
+						chart.area(function(point){
+							return DECISION.model.predict(point);
+						});
+					}
+				});
+			});
+			
+			$(function(){
+				var title='层次聚类';
+				var context='#hierarchical';
+				var chart=$('#chart',context).chart(title);
+				var tree=null;
+				$(context).on('click','button',function(){
+					var type=$(this).attr('id');
+					if(type=='start'){
+						chart.on('click');
+					}else if(type=='clean'){
+						chart.clean();
+						tree.clean();
+					}else if(type=='predt'){
+						var delay=0;
+						var data=HIERARCHICAL.hierarch(chart.data,function(point){
+							chart.cluster(point,function(){
+								delay+=1000;
+								return delay;
+							});
+						});
+						tree=$('#tree',context+'-tree').tree('层次树');
+						tree.tree(data,'#555');
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
